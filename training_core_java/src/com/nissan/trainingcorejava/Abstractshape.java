@@ -2,6 +2,8 @@ package com.nissan.trainingcorejava;
 
 abstract class shape{
 	
+	
+	
 	abstract void area();
 	
 }
