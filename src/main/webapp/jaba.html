@@ -1,0 +1,97 @@
+
+
+<html>
+<
+<body  background="images/slide02.jpg" alt="" >
+<script>
+
+  function onlyDigits(s) {
+  for (let i = s.length - 1; i >= 0; i--) {
+    const d = s.charCodeAt(i);
+    if (d < 48 || d > 57) 
+    {
+      if(d!=46)
+      return false
+    }
+  }
+  return true
+}
+    function add_number() {
+               
+               
+               var first_number = document.getElementById("Text1").value;
+
+               var second_number = document.getElementById("Text2").value;
+
+                var firstnum=parseFloat(first_number);
+                var secnum=parseFloat(second_number);
+
+               if(isNaN(firstnum) || !onlyDigits(first_number) )
+               {
+                alert( "Enter a valid First Number");
+                document.getElementById("Text1").value="";
+                
+               }
+                else if(isNaN(secnum)|| !onlyDigits(second_number))
+               {
+
+                alert( "Enter a Valid Second Number");
+                document.getElementById("Text2").value="";
+ 
+               }
+               else
+               {
+               var result = firstnum + secnum;
+               
+               if(isNaN(result) || !onlyDigits(result)){
+            	   document.getElementById("txtresult").value = "Invalid Inputs";
+                
+               }
+               else
+               {
+                result=parseFloat(result).toFixed(2);
+               document.getElementById("txtresult").value = result;
+               }
+
+               } 
+            }
+           
+    function reset()
+    {
+    	document.getElementById("Text1").value="";
+    	document.getElementById("Text2").value="";
+    	document.getElementById("txtresult").value ="";
+    	
+    }         
+</script>
+
+<style>
+.content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+</style>
+
+<div class="content">
+<font color=white>
+Enter First Number :
+<br>
+<input type="text" id="Text1" name="TextBox1"  >
+<br>Enter Second Number :
+<br>
+<input type="text" id="Text2" name="TextBox2"  >
+<br>Result :
+<br>
+<input type="text" id="txtresult" name="TextBox3" disabled>
+<br>
+<br>
+<button  id="resultbt" onclick=" return add_number();">Display Result</button>
+<input type="button" name="clickbtn" value="Reset" onclick="return reset();">
+</font>
+</div>
+
+</body>
+</html>
